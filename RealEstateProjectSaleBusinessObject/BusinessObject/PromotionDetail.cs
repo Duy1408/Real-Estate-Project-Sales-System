@@ -8,7 +8,7 @@ namespace RealEstateProjectSaleBusinessObject.BusinessObject
 {
     public class PromotionDetail
     {
-        public Guid PromotionConditionID { get; set; }
+        public Guid PromotionDetaiID { get; set; }
         public string Description { get; set; }
         public string PromotionType { get; set; }
         public double DiscountPercent { get; set; }
