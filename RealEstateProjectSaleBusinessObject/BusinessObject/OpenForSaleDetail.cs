@@ -11,8 +11,11 @@ namespace RealEstateProjectSaleBusinessObject.BusinessObject
     {
         public int Floor { get; set; }
         public string TypeRoom { get; set; }
-
         public double Price { get; set; }
+        public Guid OpeningForSaleID { get; set; }
+        public OpeningForSale OpeningForSale { get; set; }
+        public Guid PropertiesID { get; set; }
+        public Properties Properties { get; set; }
 
     }
 }

@@ -23,6 +23,10 @@ namespace RealEstateProjectSaleBusinessObject.BusinessObject
         public string PlaceofIssue { get; set; }
         public string Code { get; set; }
         public bool Status { get; set; }
+        public Guid SalesPolicyID { get; set; }
+        public Salespolicy Salespolicy { get; set; }
+        public List<Booking> Bookings { get; set; }
+        public List<Properties> Properties { get; set; }
 
 
 

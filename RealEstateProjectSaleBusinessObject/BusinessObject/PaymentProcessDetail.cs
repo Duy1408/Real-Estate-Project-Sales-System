@@ -15,6 +15,7 @@ namespace RealEstateProjectSaleBusinessObject.BusinessObject
         public double Amount { get; set; }
         public double Maintenancecosts {  get; set; }
         public string Paymentprocessname { get; set; }
-
+        public Guid PaymentProcessID { get; set; }
+        public PaymentProcess PaymentProcess { get; set; }
     }
 }

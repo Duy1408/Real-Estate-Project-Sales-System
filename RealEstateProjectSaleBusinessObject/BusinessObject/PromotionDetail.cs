@@ -14,6 +14,10 @@ namespace RealEstateProjectSaleBusinessObject.BusinessObject
         public double DiscountPercent { get; set; }
         public double DiscountAmount { get; set; }
         public double Amount { get; set; }
+        public Guid PromotionID { get; set; }
+        public Promotion Promotion { get; set; }
+        public Guid PropertiesTypeID { get; set; }
+        public PropertiesType PropertiesType { get; set; }
 
     }
 }

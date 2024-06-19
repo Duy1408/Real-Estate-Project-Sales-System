@@ -10,6 +10,7 @@ namespace RealEstateProjectSaleBusinessObject.BusinessObject
     {
         public Guid PaymentTypeID { get; set; }
         public string PaymentName { get; set; }
+        public List<BookingPayment> BookingPayments { get; set; }
 
 
     }

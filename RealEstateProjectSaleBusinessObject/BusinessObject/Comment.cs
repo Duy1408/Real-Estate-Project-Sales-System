@@ -13,5 +13,8 @@ namespace RealEstateProjectSaleBusinessObject.BusinessObject
         public DateTime CreateTime { get; set; }
         public DateTime UpdateTime { get; set; }
         public bool Status { get; set; }
+        public List<Properties> Properties { get; set; }
+        public Guid CustomerID { get; set; }
+        public Customer Customer { get; set; }
     }
 }

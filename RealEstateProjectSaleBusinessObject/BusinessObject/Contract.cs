@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace RealEstateProjectSaleBusinessObject.BusinessObject
 {
-    public class Contact
+    public class Contract
     {
         public Guid ContractID { get; set; }
         public DateTime DateSigned { get; set; }
@@ -14,6 +14,7 @@ namespace RealEstateProjectSaleBusinessObject.BusinessObject
         public DateTime CreatedStAt { get; set; }
         public string ContractType { get; set; }
         public bool Status { get; set; }
+        public Booking Booking { get; set; }
 
     }
 }

@@ -13,7 +13,9 @@ namespace RealEstateProjectSaleBusinessObject.BusinessObject
         public string PeopleApplied { get; set; }
         public string SalesPolicyType { get; set; }
         public bool Status { get; set; }
-
+        public List<Project> Projects { get; set; }
+        public List<PaymentProcess> PaymentProcesses { get; set; }
+        public List<Promotion> Promotions { get; set; }
 
     }
 }
