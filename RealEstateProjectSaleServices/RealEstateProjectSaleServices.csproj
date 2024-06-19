@@ -10,4 +10,9 @@
     <ProjectReference Include="..\RealEstateProjectSaleRepository\RealEstateProjectSaleRepository.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="IServices\" />
+    <Folder Include="Services\" />
+  </ItemGroup>
+
 </Project>
