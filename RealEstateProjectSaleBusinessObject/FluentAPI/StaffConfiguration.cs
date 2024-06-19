@@ -30,6 +30,9 @@ namespace RealEstateProjectSaleBusinessObject.FluentAPI
             builder.Property(x => x.BankName);
             builder.Property(x => x.BankNumber);
             builder.Property(x => x.Status).IsRequired();
+            builder.HasOne(x => x.Account);
+            builder.HasMany(x => x.Bookings).WithOne(x => x.Staff).OnDelete(DeleteBehavior.NoAction);
+
 
         }
     }

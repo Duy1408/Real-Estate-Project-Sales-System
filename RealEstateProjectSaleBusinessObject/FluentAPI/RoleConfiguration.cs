@@ -16,6 +16,7 @@ namespace RealEstateProjectSaleBusinessObject.FluentAPI
             builder.ToTable("Role");
             builder.HasKey(x => x.RoleID);
             builder.Property(x => x.RoleName).IsRequired();
+            builder.HasMany(x => x.Accounts).WithOne(x => x.Role).OnDelete(DeleteBehavior.NoAction);
 
 
         }
