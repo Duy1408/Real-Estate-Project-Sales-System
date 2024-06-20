@@ -2,12 +2,14 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
-namespace RealEstateProjectSaleBusinessObject.ViewModels
+namespace RealEstateProjectSaleBusinessObject.DTO.Update
 {
-    public class StaffVM
+    public class StaffUpdateDTO
     {
+        [JsonIgnore]
         public Guid StaffID { get; set; }
         public string Name { get; set; }
         public string PersonalEmail { get; set; }
@@ -25,5 +27,6 @@ namespace RealEstateProjectSaleBusinessObject.ViewModels
         public int BankNumber { get; set; }
         public bool Status { get; set; }
         public Guid AccountID { get; set; }
+
     }
 }

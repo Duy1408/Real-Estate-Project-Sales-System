@@ -3,27 +3,30 @@ using RealEstateProjectSaleBusinessObject.BusinessObject;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Security.Principal;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace RealEstateProjectSaleDAO.DAOs
 {
-    public class StaffDAO
+    public class AccountDAO
     {
-
         private readonly RealEstateProjectSaleSystemDBContext _context;
-        public StaffDAO()
+        public AccountDAO()
         {
             _context = new RealEstateProjectSaleSystemDBContext();
         }
 
-        public List<Staff> GetAllStaff()
+        public Account CheckLogin(string email, string password)
+        {
+            return _context.Accounts.Where(u => u.Email!.Equals(email) && u.Password!.Equals(password)).FirstOrDefault();
+
+        }
+
+        public List<Account> GetAllAccount()
         {
             try
             {
-                return _context.Staffs!.Include(c => c.Account)
-                                       .ToList();
+                return _context.Accounts!.Include(a => a.Role).ToList();
             }
             catch (Exception ex)
             {
@@ -31,26 +34,27 @@ namespace RealEstateProjectSaleDAO.DAOs
             }
         }
 
-        public void AddNewStaff(Staff staff)
+        public void AddNewAccount(Account account)
         {
             try
             {
-                _context.Add(staff);
+                _context.Add(account);
                 _context.SaveChanges();
             }
             catch (Exception ex)
             {
                 throw new Exception(ex.Message);
             }
+
         }
 
-        public Staff GetStaffByID(Guid id)
+        public Account GetAccountByID(Guid id)
         {
             try
             {
-                var staff = _context.Staffs!.Include(a => a.Account)
-                                           .SingleOrDefault(c => c.StaffID == id);
-                return staff;
+                var account = _context.Accounts!.Include(a => a.Role)
+                                               .SingleOrDefault(c => c.AccountID == id);
+                return account;
             }
             catch (Exception ex)
             {
@@ -58,13 +62,13 @@ namespace RealEstateProjectSaleDAO.DAOs
             }
         }
 
-        public void UpdateStaff(Staff staff)
+        public void UpdateAccount(Account account)
         {
             try
             {
-                var a = _context.Staffs!.SingleOrDefault(c => c.StaffID == staff.StaffID);
+                var a = _context.Accounts!.SingleOrDefault(c => c.AccountID == account.AccountID);
 
-                _context.Entry(a).CurrentValues.SetValues(staff);
+                _context.Entry(a).CurrentValues.SetValues(account);
                 _context.SaveChanges();
 
             }
@@ -74,19 +78,19 @@ namespace RealEstateProjectSaleDAO.DAOs
             }
         }
 
-        public bool ChangeStatusStaff(Staff staff)
+        public bool ChangeStatusAccount(Account account)
         {
-            var _staff = _context.Staffs!.FirstOrDefault(c => c.StaffID.Equals(staff.StaffID));
+            var _account = _context.Accounts!.FirstOrDefault(c => c.AccountID.Equals(account.AccountID));
 
 
-            if (_staff == null)
+            if (_account == null)
             {
                 return false;
             }
             else
             {
-                _staff.Status = false;
-                _context.Entry(_staff).State = EntityState.Modified;
+                _account.Status = false;
+                _context.Entry(_account).State = EntityState.Modified;
                 _context.SaveChanges();
                 return true;
             }

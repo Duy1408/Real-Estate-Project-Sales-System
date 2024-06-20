@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -8,9 +9,9 @@ namespace RealEstateProjectSaleBusinessObject.DTO.Create
 {
     public class StaffCreateDTO
     {
-        public Guid StaffID { get; private set; }
+        public Guid StaffID { get; set; }
         public string Name { get; set; }
-        public string Email { get; set; }
+        public string PersonalEmail { get; set; }
         public DateTime DateOfBirth { get; set; }
         public string Image { get; set; }
         public string Imagesignature { get; set; }
@@ -25,11 +26,6 @@ namespace RealEstateProjectSaleBusinessObject.DTO.Create
         public int BankNumber { get; set; }
         public bool Status { get; set; }
         public Guid AccountID { get; set; }
-
-        public StaffCreateDTO()
-        {
-            StaffID = Guid.NewGuid();
-        }
 
     }
 }
