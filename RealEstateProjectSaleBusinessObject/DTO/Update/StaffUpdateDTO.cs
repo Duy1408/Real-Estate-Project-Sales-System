@@ -26,6 +26,7 @@ namespace RealEstateProjectSaleBusinessObject.DTO.Update
         public string BankName { get; set; }
         public int BankNumber { get; set; }
         public bool Status { get; set; }
+        [JsonIgnore]
         public Guid AccountID { get; set; }
 
     }
