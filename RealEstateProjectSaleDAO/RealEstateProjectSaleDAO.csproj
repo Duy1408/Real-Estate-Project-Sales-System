@@ -10,4 +10,8 @@
     <ProjectReference Include="..\RealEstateProjectSaleBusinessObject\RealEstateProjectSaleBusinessObject.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="DAOs\" />
+  </ItemGroup>
+
 </Project>
