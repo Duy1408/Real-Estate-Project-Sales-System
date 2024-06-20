@@ -16,7 +16,7 @@ namespace RealEstateProjectSaleBusinessObject.FluentAPI
             builder.ToTable("Staff");
             builder.HasKey(x => x.StaffID);
             builder.Property(x => x.Name).IsRequired();
-            builder.Property(x => x.Email).IsRequired();
+            builder.Property(x => x.PersonalEmail).IsRequired();
             builder.Property(x => x.DateOfBirth).IsRequired();
             builder.Property(x => x.Image);
             builder.Property(x => x.Imagesignature);

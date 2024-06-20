@@ -10,7 +10,7 @@ namespace RealEstateProjectSaleBusinessObject.BusinessObject
     {
         public Guid StaffID { get; set; }
         public string Name { get; set; }
-        public string Email { get; set; }
+        public string PersonalEmail { get; set; }
         public DateTime DateOfBirth { get; set; }
         public string Image { get; set; }
         public string Imagesignature { get; set; }

@@ -65,7 +65,7 @@ namespace RealEstateProjectSaleDAO.DAOs
                 if (existingStaff != null)
                 {
                     existingStaff.Name = staff.Name;
-                    existingStaff.Email = staff.Email;
+                    existingStaff.PersonalEmail = staff.PersonalEmail;
                     existingStaff.DateOfBirth = staff.DateOfBirth;
                     existingStaff.Image = staff.Image;
                     existingStaff.Imagesignature = staff.Imagesignature;
