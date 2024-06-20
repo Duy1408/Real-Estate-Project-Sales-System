@@ -10,9 +10,4 @@
     <ProjectReference Include="..\RealEstateProjectSaleDAO\RealEstateProjectSaleDAO.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="IRepository\" />
-    <Folder Include="Repository\" />
-  </ItemGroup>
-
 </Project>
