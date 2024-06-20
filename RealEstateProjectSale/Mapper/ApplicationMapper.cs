@@ -14,7 +14,10 @@ namespace RealEstateProjectSale.Mapper
             CreateMap<StaffCreateDTO, Staff>().ReverseMap();
             CreateMap<StaffUpdateDTO, Staff>().ReverseMap();
 
+            CreateMap<AccountVM, Account>().ReverseMap().ForMember(dest => dest.RoleName,
+                                       opt => opt.MapFrom(src => src.Role!.RoleName));
             CreateMap<AccountCreateDTO, Account>().ReverseMap();
+            CreateMap<AccountUpdateDTO, Account>().ReverseMap();
 
 
         }

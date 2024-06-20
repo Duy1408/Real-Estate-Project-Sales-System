@@ -128,6 +128,7 @@ namespace RealEstateProjectSale.Controllers.StaffController
                 if (existingStaff != null)
                 {
                     staff.StaffID = existingStaff.StaffID;
+                    staff.AccountID = existingStaff.AccountID;
 
                     var _staff = _mapper.Map<Staff>(staff);
                     _staffServices.UpdateStaff(_staff);
@@ -137,8 +138,6 @@ namespace RealEstateProjectSale.Controllers.StaffController
                 }
 
                 return NotFound("Staff not found.");
-
-
 
             }
             catch (Exception ex)

@@ -16,8 +16,6 @@ namespace RealEstateProjectSaleBusinessObject.DTO.Create
         public string Email { get; set; }
 
         [Required(ErrorMessage = "Password is required.")]
-        [StringLength(100, MinimumLength = 6, ErrorMessage = "Password must be at least 6 characters.")]
-        [RegularExpression(@"^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d@$!%*#?&^_-]+$", ErrorMessage = "Password must contain at least one letter and one number.")]
         public string Password { get; set; }
 
         [Required(ErrorMessage = "Status is required.")]
