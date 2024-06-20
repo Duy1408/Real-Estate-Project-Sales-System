@@ -9,6 +9,7 @@ namespace RealEstateProjectSaleBusinessObject.BusinessObject
 {
     public class OpenForSaleDetail
     {
+        public Guid OpenForSaleDetailID { get; set; }
         public int Floor { get; set; }
         public string TypeRoom { get; set; }
         public double Price { get; set; }

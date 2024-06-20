@@ -19,11 +19,9 @@ namespace RealEstateProjectSaleBusinessObject.BusinessObject
         public string Image { get; set; }
         public Guid ProjectID { get; set; }
         public Project Project { get; set; }
+        public Guid BookingID { get; set; }
         public Booking Booking { get; set; }
-
-
-    public List<Comment> Comments { get; set; }
-
+        public List<Comment> Comments { get; set; }
         public Guid PropertiesTypeID { get; set; }
         public PropertiesType PropertiesType { get; set; }
         public List<OpenForSaleDetail> openForSaleDetails { get; set; }

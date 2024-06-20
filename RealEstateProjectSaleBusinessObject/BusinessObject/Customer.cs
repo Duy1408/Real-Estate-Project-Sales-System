@@ -21,6 +21,7 @@ namespace RealEstateProjectSaleBusinessObject.BusinessObject
         public int BankNumber { get; set; }
         public string Address { get; set; }
         public bool Status { get; set; }
+        public Guid AccountID { get; set; }
         public Account Account { get; set; }
         public List<Booking> Bookings { get; set; }
         public List<Comment> Comments { get; set; }

@@ -18,7 +18,7 @@ namespace RealEstateProjectSaleBusinessObject.BusinessObject
         public List<BookingPayment> BookingPayments { get; set; }
         public Guid ProjectID { get; set; }
         public Project Project { get; set; }
-        public Contract Contract { get; set; }
+     
         public Guid PaymentProcessID { get; set; }
         public PaymentProcess PaymentProcess { get; set; }
         public List<BookingPaymentProcessDetail> BookingPaymentProcessDetails { get; set; }
@@ -26,7 +26,5 @@ namespace RealEstateProjectSaleBusinessObject.BusinessObject
         public OpeningForSale OpeningForSale { get; set; }
         public Guid CustomerID { get; set; }
         public Customer Customer { get; set; }
-        public Properties Properties { get; set; }
-
     }
 }

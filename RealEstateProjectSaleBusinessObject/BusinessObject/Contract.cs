@@ -14,6 +14,7 @@ namespace RealEstateProjectSaleBusinessObject.BusinessObject
         public DateTime CreatedStAt { get; set; }
         public string ContractType { get; set; }
         public bool Status { get; set; }
+        public Guid BookingID { get; set; }
         public Booking Booking { get; set; }
 
     }

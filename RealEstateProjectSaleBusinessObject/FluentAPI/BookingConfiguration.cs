@@ -19,16 +19,8 @@ namespace RealEstateProjectSaleBusinessObject.FluentAPI
             builder.Property(x => x.Dateofsignature).IsRequired();
             builder.Property(x => x.BookingFile).IsRequired();
             builder.Property(x => x.Status).IsRequired();
-            builder.HasOne(x => x.Contract);
-            builder.HasOne(x => x.Properties);
-
             builder.HasMany(x => x.BookingPayments).WithOne(x => x.Booking).OnDelete(DeleteBehavior.NoAction);
             builder.HasMany(x => x.BookingPaymentProcessDetails).WithOne(x => x.Booking).OnDelete(DeleteBehavior.NoAction);
-
-
-
-
-
         }
     }
 }
