@@ -20,6 +20,7 @@ namespace RealEstateProjectSaleBusinessObject.FluentAPI
             builder.Property(x => x.CreatedStAt).IsRequired();
             builder.Property(x => x.ContractType).IsRequired();
             builder.Property(x => x.Status).IsRequired();
+            builder.HasOne(x => x.Booking);
 
         }
     }

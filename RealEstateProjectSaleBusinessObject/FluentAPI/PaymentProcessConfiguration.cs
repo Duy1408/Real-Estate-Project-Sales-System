@@ -18,7 +18,7 @@ namespace RealEstateProjectSaleBusinessObject.FluentAPI
             builder.Property(x => x.Paymentperiod).IsRequired();
             builder.Property(x => x.Duration).IsRequired();
             builder.Property(x => x.PaymentRate).IsRequired();
-
+            builder.HasMany(x => x.PaymentProcessDetails).WithOne(x => x.PaymentProcess).OnDelete(DeleteBehavior.NoAction);
         }
     }
 }

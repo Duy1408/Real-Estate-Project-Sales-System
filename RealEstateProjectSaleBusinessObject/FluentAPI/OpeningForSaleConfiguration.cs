@@ -25,7 +25,8 @@ namespace RealEstateProjectSaleBusinessObject.FluentAPI
             builder.Property(x => x.DepositMoney).IsRequired();
             builder.Property(x => x.RevervationMoney).IsRequired();
             builder.Property(x => x.Status).IsRequired();
-
+            builder.HasMany(x => x.Bookings).WithOne(x => x.OpeningForSale).OnDelete(DeleteBehavior.NoAction);
+            builder.HasMany(x => x.openForSaleDetails).WithOne(x => x.OpeningForSale).OnDelete(DeleteBehavior.NoAction);
         }
     }
 }

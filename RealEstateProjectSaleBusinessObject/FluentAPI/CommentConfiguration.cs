@@ -19,7 +19,6 @@ namespace RealEstateProjectSaleBusinessObject.FluentAPI
             builder.Property(x => x.CreateTime).IsRequired();
             builder.Property(x => x.UpdateTime);
             builder.Property(x => x.Status).IsRequired();
-
         }
     }
 }
