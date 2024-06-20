@@ -21,6 +21,8 @@ builder.Services.AddScoped<IStaffRepo, StaffRepo>();
 builder.Services.AddScoped<IStaffServices, StaffServices>();
 builder.Services.AddScoped<IAccountRepo, AccountRepo>();
 builder.Services.AddScoped<IAccountServices, AccountServices>();
+builder.Services.AddScoped<ICustomerRepo, CustomerRepo>();
+builder.Services.AddScoped<ICustomerServices, CustomerServices>();
 
 
 
