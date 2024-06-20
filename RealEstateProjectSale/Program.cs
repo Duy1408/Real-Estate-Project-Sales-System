@@ -19,6 +19,8 @@ builder.Services.AddAutoMapper(typeof(ApplicationMapper));
 //Add Scoped
 builder.Services.AddScoped<IStaffRepo, StaffRepo>();
 builder.Services.AddScoped<IStaffServices, StaffServices>();
+builder.Services.AddScoped<IAccountRepo, AccountRepo>();
+builder.Services.AddScoped<IAccountServices, AccountServices>();
 
 
 
