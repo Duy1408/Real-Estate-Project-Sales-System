@@ -61,7 +61,7 @@ namespace RealEstateProjectSale.Controllers.StaffController
         }
 
         [HttpPost]
-        public IActionResult AddNewStaff(RegisterStaffVM accountStaff)
+        public async Task<IActionResult> AddNewStaff(RegisterStaffVM accountStaff)
         {
             try
             {
