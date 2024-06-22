@@ -11,10 +11,10 @@ namespace RealEstateProjectSaleBusinessObject.BusinessObject
         public Guid CommentId { get; set; }
         public string Content { get; set; }
         public DateTime CreateTime { get; set; }
-        public DateTime UpdateTime { get; set; }
+        public DateTime? UpdateTime { get; set; }
         public bool Status { get; set; }
         public Guid PropertiesID { get; set; }
-        public Properties Properties { get; set; }
+        public Property Properties { get; set; }
         public Guid CustomerID { get; set; }
         public Customer Customer { get; set; }
     }

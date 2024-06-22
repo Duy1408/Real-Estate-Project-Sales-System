@@ -16,17 +16,17 @@ namespace RealEstateProjectSaleBusinessObject.BusinessObject
         public string Address { get; set; }
         public string Commune { get; set; }
         public string District { get; set; }
-        public string Summary { get; set; }
-        public int LicenseNo { get; set; }
-        public DateTime DateOfIssue { get; set; }
-        public string CampusArea { get; set; }
-        public string PlaceofIssue { get; set; }
-        public string Code { get; set; }
+        public string? Summary { get; set; }
+        public int? LicenseNo { get; set; }
+        public DateTime? DateOfIssue { get; set; }
+        public string? CampusArea { get; set; }
+        public string? PlaceofIssue { get; set; }
+        public string? Code { get; set; }
         public bool Status { get; set; }
         public Guid SalesPolicyID { get; set; }
         public Salespolicy Salespolicy { get; set; }
         public List<Booking> Bookings { get; set; }
-        public List<Properties> Properties { get; set; }
+        public List<Property> Properties { get; set; }
 
 
 

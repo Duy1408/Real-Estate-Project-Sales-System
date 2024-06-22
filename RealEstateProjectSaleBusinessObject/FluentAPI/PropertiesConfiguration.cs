@@ -9,12 +9,12 @@ using System.Threading.Tasks;
 
 namespace RealEstateProjectSaleBusinessObject.FluentAPI
 {
-    public class PropertiesConfiguration : IEntityTypeConfiguration<Properties>
+    public class PropertiesConfiguration : IEntityTypeConfiguration<Property>
     {
-        public void Configure(EntityTypeBuilder<Properties> builder)
+        public void Configure(EntityTypeBuilder<Property> builder)
         {
-            builder.ToTable("Properties");
-            builder.HasKey(x => x.PropertiesID);
+            builder.ToTable("Property");
+            builder.HasKey(x => x.PropertyID);
             builder.Property(x => x.Floor).IsRequired();
             builder.Property(x => x.SizeArea).IsRequired();
             builder.Property(x => x.BedRoom).IsRequired();
@@ -30,5 +30,7 @@ namespace RealEstateProjectSaleBusinessObject.FluentAPI
 
 
         }
+
+    
     }
 }

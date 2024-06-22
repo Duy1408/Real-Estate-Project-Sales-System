@@ -34,8 +34,8 @@ namespace RealEstateProjectSaleBusinessObject.BusinessObject
         public virtual DbSet<Project>? Projects { get; set; }
         public virtual DbSet<Promotion>? Promotions { get; set; }
         public virtual DbSet<PromotionDetail>? PromotionDetails { get; set; }
-        public virtual DbSet<Properties>? Properties { get; set; }
-        public virtual DbSet<PropertiesType>? PropertiesTypes { get; set; }
+        public virtual DbSet<Property>? Properties { get; set; }
+        public virtual DbSet<PropertyType>? PropertiesTypes { get; set; }
         public virtual DbSet<Role>? Roles { get; set; }
         public virtual DbSet<Salespolicy>? Salespolicies { get; set; }
         public virtual DbSet<Staff>? Staffs { get; set; }

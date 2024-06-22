@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using RealEstateProjectSaleBusinessObject.BusinessObject;
 
@@ -11,9 +12,10 @@ using RealEstateProjectSaleBusinessObject.BusinessObject;
 namespace RealEstateProjectSaleBusinessObject.Migrations
 {
     [DbContext(typeof(RealEstateProjectSaleSystemDBContext))]
-    partial class RealEstateProjectSaleSystemDBContextModelSnapshot : ModelSnapshot
+    [Migration("20240622155128_v3")]
+    partial class v3
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -626,7 +628,7 @@ namespace RealEstateProjectSaleBusinessObject.Migrations
 
                     b.HasIndex("PropertyTypeID");
 
-                    b.ToTable("Property", (string)null);
+                    b.ToTable("Properties", (string)null);
                 });
 
             modelBuilder.Entity("RealEstateProjectSaleBusinessObject.BusinessObject.PropertyType", b =>
@@ -641,7 +643,7 @@ namespace RealEstateProjectSaleBusinessObject.Migrations
 
                     b.HasKey("PropertyTypeID");
 
-                    b.ToTable("PropertyType", (string)null);
+                    b.ToTable("PropertiesType", (string)null);
                 });
 
             modelBuilder.Entity("RealEstateProjectSaleBusinessObject.BusinessObject.Role", b =>
