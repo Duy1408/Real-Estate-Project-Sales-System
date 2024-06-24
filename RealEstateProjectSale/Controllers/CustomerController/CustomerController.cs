@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using RealEstateProjectSaleBusinessObject.BusinessObject;
 using RealEstateProjectSaleBusinessObject.DTO.Create;
+using RealEstateProjectSaleBusinessObject.DTO.Update;
 using RealEstateProjectSaleBusinessObject.ViewModels;
 using RealEstateProjectSaleServices.IServices;
 using RealEstateProjectSaleServices.Services;
@@ -116,6 +117,34 @@ namespace RealEstateProjectSale.Controllers.CustomerController
             }
 
         }
+
+        [HttpPut("{id}")]
+        public IActionResult UpdateCustomer(CustomerUpdateDTO customer, Guid id)
+        {
+            try
+            {
+                var existingCustomer = _customerServices.GetCustomerByID(id);
+                if (existingCustomer != null)
+                {
+                    customer.CustomerID = existingCustomer.CustomerID;
+                    customer.AccountID = existingCustomer.AccountID;
+
+                    var _customer = _mapper.Map<Customer>(customer);
+                    _customerServices.UpdateCustomer(_customer);
+
+                    return Ok("Update Successfully");
+
+                }
+
+                return NotFound("Customer not found.");
+
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
+
 
         [HttpDelete("{id}")]
         public IActionResult DeleteCustomer(Guid id)
