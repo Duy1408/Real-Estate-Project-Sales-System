@@ -22,7 +22,8 @@ namespace RealEstateProjectSaleBusinessObject.BusinessObject
         public Guid BookingID { get; set; }
         public Booking Booking { get; set; }
         public List<Comment> Comments { get; set; }
-        public Guid PropertiesTypeID { get; set; }
+        public Guid PropertyTypeID { get; set; }
+
         public PropertyType PropertyType { get; set; }
         public List<OpenForSaleDetail> openForSaleDetails { get; set; }
 
