@@ -37,6 +37,8 @@ builder.Services.AddScoped<IPromotionRepo, PromotionRepo>();
 builder.Services.AddScoped<IPromotionServices, PromotionServices>();
 builder.Services.AddScoped<IOpeningForSaleRepo, OpeningForSaleRepo>();
 builder.Services.AddScoped<IOpeningForSaleServices, OpeningForSaleServices>();
+builder.Services.AddScoped<ISalespolicyServices, SalespolicyServices>();
+builder.Services.AddScoped<ISalespolicyRepo, SalespolicyRepo>();
 
 
 
