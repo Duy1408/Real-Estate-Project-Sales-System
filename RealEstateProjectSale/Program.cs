@@ -29,6 +29,15 @@ builder.Services.AddScoped<ICustomerRepo, CustomerRepo>();
 builder.Services.AddScoped<ICustomerServices, CustomerServices>();
 builder.Services.AddScoped<IProjectRepo, ProjectRepo>();
 builder.Services.AddScoped<IProjectServices, ProjectServices>();
+builder.Services.AddScoped<IPropertyServices, PropertyServices>();
+builder.Services.AddScoped<IPropertyRepo, PropertyRepo>();
+builder.Services.AddScoped<ICommentRepo, CommentRepo>();
+builder.Services.AddScoped<ICommentServices, CommentServices>();
+
+
+
+
+
 
 //Jwt
 builder.Services.AddScoped<IJWTTokenService, JWTTokenService>();
