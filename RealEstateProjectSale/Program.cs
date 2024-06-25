@@ -33,6 +33,8 @@ builder.Services.AddScoped<IPropertyServices, PropertyServices>();
 builder.Services.AddScoped<IPropertyRepo, PropertyRepo>();
 builder.Services.AddScoped<ICommentRepo, CommentRepo>();
 builder.Services.AddScoped<ICommentServices, CommentServices>();
+builder.Services.AddScoped<IPromotionRepo, PromotionRepo>();
+builder.Services.AddScoped<IPromotionServices, PromotionServices>();
 
 
 
