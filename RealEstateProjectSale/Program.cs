@@ -35,6 +35,8 @@ builder.Services.AddScoped<ICommentRepo, CommentRepo>();
 builder.Services.AddScoped<ICommentServices, CommentServices>();
 builder.Services.AddScoped<IPromotionRepo, PromotionRepo>();
 builder.Services.AddScoped<IPromotionServices, PromotionServices>();
+builder.Services.AddScoped<IOpeningForSaleRepo, OpeningForSaleRepo>();
+builder.Services.AddScoped<IOpeningForSaleServices, OpeningForSaleServices>();
 
 
 
