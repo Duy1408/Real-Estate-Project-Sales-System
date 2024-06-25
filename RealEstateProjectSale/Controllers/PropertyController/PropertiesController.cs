@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using RealEstateProjectSaleBusinessObject.BusinessObject;
+using RealEstateProjectSaleServices.IServices;
 
 namespace RealEstateProjectSale.Controllers.PropertyController
 {
@@ -13,61 +14,62 @@ namespace RealEstateProjectSale.Controllers.PropertyController
     [ApiController]
     public class PropertiesController : ControllerBase
     {
-        private readonly RealEstateProjectSaleSystemDBContext _context;
+        private readonly IPropertyServices _pro;
 
-        public PropertiesController(RealEstateProjectSaleSystemDBContext context)
+       
+        public PropertiesController(IPropertyServices pro)
         {
-            _context = context;
+            _pro = pro;
         }
 
         // GET: api/Properties
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Property>>> GetProperties()
+        public ActionResult<IEnumerable<Property>> GetProperties()
         {
-          if (_context.Properties == null)
+          if (_pro.GetProperty() == null)
           {
               return NotFound();
           }
-            return await _context.Properties.ToListAsync();
+            return _pro.GetProperty().ToList();
         }
 
         // GET: api/Properties/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<Property>> GetProperty(Guid id)
+        public ActionResult<Property> GetProperty(Guid id)
         {
-          if (_context.Properties == null)
+          if (_pro.GetProperty() == null)
           {
               return NotFound();
           }
-            var @property = await _context.Properties.FindAsync(id);
+            var property = _pro.GetPropertyById(id);
 
-            if (@property == null)
+            if (property == null)
             {
                 return NotFound();
             }
 
-            return @property;
+            return property;
         }
 
         // PUT: api/Properties/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutProperty(Guid id, Property @property)
+        public async Task<IActionResult> PutProperty(Guid id, Property property)
         {
-            if (id != @property.PropertyID)
+            if (_pro.GetProperty()==null)
             {
                 return BadRequest();
             }
 
-            _context.Entry(@property).State = EntityState.Modified;
+           
 
             try
             {
-                await _context.SaveChangesAsync();
+                _pro.UpdateProperty(property);
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!PropertyExists(id))
+                if (_pro.GetProperty()==null)
                 {
                     return NotFound();
                 }
@@ -83,14 +85,13 @@ namespace RealEstateProjectSale.Controllers.PropertyController
         // POST: api/Properties
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
-        public async Task<ActionResult<Property>> PostProperty(Property @property)
+        public async Task<ActionResult<Property>> PostProperty(Property property)
         {
-          if (_context.Properties == null)
+          if (_pro.GetProperty() == null)
           {
               return Problem("Entity set 'RealEstateProjectSaleSystemDBContext.Properties'  is null.");
           }
-            _context.Properties.Add(@property);
-            await _context.SaveChangesAsync();
+            _pro.AddNew(property);
 
             return CreatedAtAction("GetProperty", new { id = @property.PropertyID }, @property);
         }
@@ -99,25 +100,20 @@ namespace RealEstateProjectSale.Controllers.PropertyController
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteProperty(Guid id)
         {
-            if (_context.Properties == null)
+            if (_pro.GetProperty() == null)
             {
                 return NotFound();
             }
-            var @property = await _context.Properties.FindAsync(id);
-            if (@property == null)
+            var property = _pro.GetPropertyById(id);
+            if (property == null)
             {
                 return NotFound();
             }
-
-            _context.Properties.Remove(@property);
-            await _context.SaveChangesAsync();
+            _pro.ChangeStatus(property);
 
             return NoContent();
         }
 
-        private bool PropertyExists(Guid id)
-        {
-            return (_context.Properties?.Any(e => e.PropertyID == id)).GetValueOrDefault();
-        }
+    
     }
 }
