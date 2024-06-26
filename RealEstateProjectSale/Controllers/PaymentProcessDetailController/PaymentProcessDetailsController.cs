@@ -23,7 +23,7 @@ namespace RealEstateProjectSale.Controllers.PaymentProcessDetailController
 
         // GET: api/PaymentProcessDetails
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<PaymentProcessDetail>>> GetPaymentProcessDetails()
+        public ActionResult<IEnumerable<PaymentProcessDetail>> GetPaymentProcessDetails()
         {
           if (_pmt.GetPaymentProcessDetail()==null)
           {
@@ -34,7 +34,7 @@ namespace RealEstateProjectSale.Controllers.PaymentProcessDetailController
 
         // GET: api/PaymentProcessDetails/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<PaymentProcessDetail>> GetPaymentProcessDetail(Guid id)
+        public ActionResult<PaymentProcessDetail> GetPaymentProcessDetail(Guid id)
         {
           if (_pmt.GetPaymentProcessDetail() == null)
           {
@@ -53,7 +53,7 @@ namespace RealEstateProjectSale.Controllers.PaymentProcessDetailController
         // PUT: api/PaymentProcessDetails/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutPaymentProcessDetail(Guid id, PaymentProcessDetail paymentProcessDetail)
+        public IActionResult PutPaymentProcessDetail(Guid id, PaymentProcessDetail paymentProcessDetail)
         {
             if (_pmt.GetPaymentProcessDetail() == null)
             {
@@ -84,7 +84,7 @@ namespace RealEstateProjectSale.Controllers.PaymentProcessDetailController
         // POST: api/PaymentProcessDetails
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
-        public async Task<ActionResult<PaymentProcessDetail>> PostPaymentProcessDetail(PaymentProcessDetail paymentProcessDetail)
+        public ActionResult<PaymentProcessDetail> PostPaymentProcessDetail(PaymentProcessDetail paymentProcessDetail)
         {
           if (_pmt.GetPaymentProcessDetail() == null)
           {
@@ -97,7 +97,7 @@ namespace RealEstateProjectSale.Controllers.PaymentProcessDetailController
 
         // DELETE: api/PaymentProcessDetails/5
         [HttpDelete("{id}")]
-        public async Task<IActionResult> DeletePaymentProcessDetail(Guid id)
+        public IActionResult DeletePaymentProcessDetail(Guid id)
         {
             if (_pmt.GetPaymentProcessDetail() == null)
             {

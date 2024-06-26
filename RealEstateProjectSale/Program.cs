@@ -45,6 +45,8 @@ builder.Services.AddScoped<IPaymentProcessRepo, PaymentProcessRepo>();
 builder.Services.AddScoped<IPaymentProcessServices, PaymentProcessServices>();
 builder.Services.AddScoped<IPaymentProcessDetailRepo, PaymentProcessDetailRepo>();
 builder.Services.AddScoped<IPaymentProcessDetailServices, PaymentProcessDetailServices>();
+builder.Services.AddScoped<IBookingRepo, BookingRepo>();
+builder.Services.AddScoped<IBookingServices, BookingServices>();
 
 
 
