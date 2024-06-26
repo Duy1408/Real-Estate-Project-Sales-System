@@ -23,6 +23,10 @@ namespace RealEstateProjectSale.Mapper
             CreateMap<CustomerCreateDTO, Customer>().ReverseMap();
             CreateMap<CustomerUpdateDTO, Customer>().ReverseMap();
 
+            CreateMap<ContractVM, Contract>().ReverseMap();
+            CreateMap<ContractCreateDTO, Contract>().ReverseMap();
+            CreateMap<ContractUpdateDTO, Contract>().ReverseMap();
+
 
         }
     }
