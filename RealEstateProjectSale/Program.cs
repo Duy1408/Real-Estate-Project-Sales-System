@@ -43,6 +43,8 @@ builder.Services.AddScoped<IPropertyTypeServices, PropertyTypeServices>();
 builder.Services.AddScoped<IPropertyTypeRepo, PropertyTypeRepo>();
 builder.Services.AddScoped<IPaymentProcessRepo, PaymentProcessRepo>();
 builder.Services.AddScoped<IPaymentProcessServices, PaymentProcessServices>();
+builder.Services.AddScoped<IPaymentProcessDetailRepo, PaymentProcessDetailRepo>();
+builder.Services.AddScoped<IPaymentProcessDetailServices, PaymentProcessDetailServices>();
 
 
 
