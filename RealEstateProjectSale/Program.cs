@@ -41,6 +41,8 @@ builder.Services.AddScoped<ISalespolicyServices, SalespolicyServices>();
 builder.Services.AddScoped<ISalespolicyRepo, SalespolicyRepo>();
 builder.Services.AddScoped<IPropertyTypeServices, PropertyTypeServices>();
 builder.Services.AddScoped<IPropertyTypeRepo, PropertyTypeRepo>();
+builder.Services.AddScoped<IPaymentProcessRepo, PaymentProcessRepo>();
+builder.Services.AddScoped<IPaymentProcessServices, PaymentProcessServices>();
 
 
 
