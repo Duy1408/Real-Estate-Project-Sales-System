@@ -55,6 +55,8 @@ builder.Services.AddScoped<IPaymentTypeRepo, PaymentTypeRepo>();
 builder.Services.AddScoped<IPaymentTypeServices, PaymentTypeServices>();
 builder.Services.AddScoped<IPromotionDetailRepo, PromotionDetailRepo>();
 builder.Services.AddScoped<IPromotionDetailServices, PromotionDetailServices>();
+builder.Services.AddScoped<IBookingPaymentServices, BookingPaymentServices>();
+builder.Services.AddScoped<IBookingPaymentRepo, BookingPaymentRepo>();
 
 
 
