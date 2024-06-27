@@ -60,14 +60,14 @@ namespace RealEstateProjectSale.Controllers.ContractController
         }
 
         [HttpPost]
-        public IActionResult AddNewAccount(ContractCreateDTO contract)
+        public IActionResult AddNewContract(ContractCreateDTO contract)
         {
             try
             {
                 var _contract = _mapper.Map<Contract>(contract);
                 _contractServices.AddNewContract(_contract);
 
-                return Ok("Create Account Successfully");
+                return Ok("Create Contract Successfully");
             }
             catch (Exception ex)
             {
