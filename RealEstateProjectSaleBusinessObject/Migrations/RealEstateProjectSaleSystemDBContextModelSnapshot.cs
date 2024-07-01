@@ -72,10 +72,10 @@ namespace RealEstateProjectSaleBusinessObject.Migrations
                     b.Property<Guid>("OpeningForSaleID")
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<Guid>("PaymentProcessID")
+                    b.Property<Guid>("ProjectID")
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<Guid>("ProjectID")
+                    b.Property<Guid>("PropertyID")
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<Guid>("StaffID")
@@ -90,75 +90,13 @@ namespace RealEstateProjectSaleBusinessObject.Migrations
 
                     b.HasIndex("OpeningForSaleID");
 
-                    b.HasIndex("PaymentProcessID");
-
                     b.HasIndex("ProjectID");
+
+                    b.HasIndex("PropertyID");
 
                     b.HasIndex("StaffID");
 
                     b.ToTable("Booking", (string)null);
-                });
-
-            modelBuilder.Entity("RealEstateProjectSaleBusinessObject.BusinessObject.BookingPayment", b =>
-                {
-                    b.Property<Guid>("BookingPaymentID")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<Guid>("BookingID")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<Guid>("CustomerID")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<int>("Deposittoholdproject")
-                        .HasColumnType("int");
-
-                    b.Property<Guid>("PaymentTypeID")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<Guid>("ProjectID")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<bool>("Status")
-                        .HasColumnType("bit");
-
-                    b.HasKey("BookingPaymentID");
-
-                    b.HasIndex("BookingID");
-
-                    b.HasIndex("PaymentTypeID");
-
-                    b.ToTable("BookingPayment", (string)null);
-                });
-
-            modelBuilder.Entity("RealEstateProjectSaleBusinessObject.BusinessObject.BookingPaymentProcessDetail", b =>
-                {
-                    b.Property<Guid>("BookingPaymentProcessDetailID")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<Guid>("BookingID")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<int>("Customervaluepaid")
-                        .HasColumnType("int");
-
-                    b.Property<string>("Note")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime>("Paymentduedate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("Paymentprogress")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("BookingPaymentProcessDetailID");
-
-                    b.HasIndex("BookingID");
-
-                    b.ToTable("BookingPaymentProcessDetail", (string)null);
                 });
 
             modelBuilder.Entity("RealEstateProjectSaleBusinessObject.BusinessObject.Comment", b =>
@@ -180,6 +118,9 @@ namespace RealEstateProjectSaleBusinessObject.Migrations
                     b.Property<Guid>("PropertiesID")
                         .HasColumnType("uniqueidentifier");
 
+                    b.Property<Guid>("PropertyID")
+                        .HasColumnType("uniqueidentifier");
+
                     b.Property<bool>("Status")
                         .HasColumnType("bit");
 
@@ -190,7 +131,7 @@ namespace RealEstateProjectSaleBusinessObject.Migrations
 
                     b.HasIndex("CustomerID");
 
-                    b.HasIndex("PropertiesID");
+                    b.HasIndex("PropertyID");
 
                     b.ToTable("Comment", (string)null);
                 });
@@ -214,6 +155,9 @@ namespace RealEstateProjectSaleBusinessObject.Migrations
                     b.Property<DateTime?>("DateSigned")
                         .HasColumnType("datetime2");
 
+                    b.Property<Guid>("PaymentProcessID")
+                        .HasColumnType("uniqueidentifier");
+
                     b.Property<bool>("Status")
                         .HasColumnType("bit");
 
@@ -224,7 +168,38 @@ namespace RealEstateProjectSaleBusinessObject.Migrations
 
                     b.HasIndex("BookingID");
 
+                    b.HasIndex("PaymentProcessID");
+
                     b.ToTable("Contact", (string)null);
+                });
+
+            modelBuilder.Entity("RealEstateProjectSaleBusinessObject.BusinessObject.ContractPaymentDetail", b =>
+                {
+                    b.Property<Guid>("ContractPaymentDetailID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("ContractID")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<int>("Customervaluepaid")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Note")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("Paymentduedate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Paymentprogress")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("ContractPaymentDetailID");
+
+                    b.HasIndex("ContractID");
+
+                    b.ToTable("ContractPaymentDetail", (string)null);
                 });
 
             modelBuilder.Entity("RealEstateProjectSaleBusinessObject.BusinessObject.Customer", b =>
@@ -304,6 +279,9 @@ namespace RealEstateProjectSaleBusinessObject.Migrations
                     b.Property<Guid>("PropertiesID")
                         .HasColumnType("uniqueidentifier");
 
+                    b.Property<Guid>("PropertyID")
+                        .HasColumnType("uniqueidentifier");
+
                     b.Property<string>("TypeRoom")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -312,7 +290,7 @@ namespace RealEstateProjectSaleBusinessObject.Migrations
 
                     b.HasIndex("OpeningForSaleID");
 
-                    b.HasIndex("PropertiesID");
+                    b.HasIndex("PropertyID");
 
                     b.ToTable("OpenForSaleDetail", (string)null);
                 });
@@ -347,6 +325,9 @@ namespace RealEstateProjectSaleBusinessObject.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<Guid>("ProjectID")
+                        .HasColumnType("uniqueidentifier");
+
                     b.Property<DateTime>("ReservationTime")
                         .HasColumnType("datetime2");
 
@@ -358,7 +339,47 @@ namespace RealEstateProjectSaleBusinessObject.Migrations
 
                     b.HasKey("OpeningForSaleID");
 
+                    b.HasIndex("ProjectID");
+
                     b.ToTable("OpeningForSale", (string)null);
+                });
+
+            modelBuilder.Entity("RealEstateProjectSaleBusinessObject.BusinessObject.Payment", b =>
+                {
+                    b.Property<Guid>("PaymentID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("BookingID")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("ContractPaymentDetailID")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("CustomerID")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<int>("Deposittoholdproject")
+                        .HasColumnType("int");
+
+                    b.Property<Guid>("PaymentTypeID")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("ProjectID")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<bool>("Status")
+                        .HasColumnType("bit");
+
+                    b.HasKey("PaymentID");
+
+                    b.HasIndex("BookingID");
+
+                    b.HasIndex("ContractPaymentDetailID");
+
+                    b.HasIndex("PaymentTypeID");
+
+                    b.ToTable("Payment", (string)null);
                 });
 
             modelBuilder.Entity("RealEstateProjectSaleBusinessObject.BusinessObject.PaymentProcess", b =>
@@ -481,9 +502,6 @@ namespace RealEstateProjectSaleBusinessObject.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<Guid>("SalesPolicyID")
-                        .HasColumnType("uniqueidentifier");
-
                     b.Property<string>("ShortName")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -499,8 +517,6 @@ namespace RealEstateProjectSaleBusinessObject.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("ProjectID");
-
-                    b.HasIndex("SalesPolicyID");
 
                     b.ToTable("Project", (string)null);
                 });
@@ -588,9 +604,6 @@ namespace RealEstateProjectSaleBusinessObject.Migrations
                     b.Property<int>("BedRoom")
                         .HasColumnType("int");
 
-                    b.Property<Guid>("BookingID")
-                        .HasColumnType("uniqueidentifier");
-
                     b.Property<int>("Floor")
                         .HasColumnType("int");
 
@@ -616,8 +629,6 @@ namespace RealEstateProjectSaleBusinessObject.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("PropertyID");
-
-                    b.HasIndex("BookingID");
 
                     b.HasIndex("ProjectID");
 
@@ -669,6 +680,9 @@ namespace RealEstateProjectSaleBusinessObject.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<Guid>("ProjectID")
+                        .HasColumnType("uniqueidentifier");
+
                     b.Property<string>("SalesPolicyType")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -677,6 +691,8 @@ namespace RealEstateProjectSaleBusinessObject.Migrations
                         .HasColumnType("bit");
 
                     b.HasKey("SalesPolicyID");
+
+                    b.HasIndex("ProjectID");
 
                     b.ToTable("Salespolicy", (string)null);
                 });
@@ -778,15 +794,15 @@ namespace RealEstateProjectSaleBusinessObject.Migrations
                         .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
-                    b.HasOne("RealEstateProjectSaleBusinessObject.BusinessObject.PaymentProcess", "PaymentProcess")
-                        .WithMany("Bookings")
-                        .HasForeignKey("PaymentProcessID")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
                     b.HasOne("RealEstateProjectSaleBusinessObject.BusinessObject.Project", "Project")
                         .WithMany("Bookings")
                         .HasForeignKey("ProjectID")
+                        .OnDelete(DeleteBehavior.NoAction)
+                        .IsRequired();
+
+                    b.HasOne("RealEstateProjectSaleBusinessObject.BusinessObject.Property", "Property")
+                        .WithMany("Bookings")
+                        .HasForeignKey("PropertyID")
                         .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
@@ -800,41 +816,11 @@ namespace RealEstateProjectSaleBusinessObject.Migrations
 
                     b.Navigation("OpeningForSale");
 
-                    b.Navigation("PaymentProcess");
-
                     b.Navigation("Project");
 
+                    b.Navigation("Property");
+
                     b.Navigation("Staff");
-                });
-
-            modelBuilder.Entity("RealEstateProjectSaleBusinessObject.BusinessObject.BookingPayment", b =>
-                {
-                    b.HasOne("RealEstateProjectSaleBusinessObject.BusinessObject.Booking", "Booking")
-                        .WithMany("BookingPayments")
-                        .HasForeignKey("BookingID")
-                        .OnDelete(DeleteBehavior.NoAction)
-                        .IsRequired();
-
-                    b.HasOne("RealEstateProjectSaleBusinessObject.BusinessObject.PaymentType", "PaymentType")
-                        .WithMany("BookingPayments")
-                        .HasForeignKey("PaymentTypeID")
-                        .OnDelete(DeleteBehavior.NoAction)
-                        .IsRequired();
-
-                    b.Navigation("Booking");
-
-                    b.Navigation("PaymentType");
-                });
-
-            modelBuilder.Entity("RealEstateProjectSaleBusinessObject.BusinessObject.BookingPaymentProcessDetail", b =>
-                {
-                    b.HasOne("RealEstateProjectSaleBusinessObject.BusinessObject.Booking", "Booking")
-                        .WithMany("BookingPaymentProcessDetails")
-                        .HasForeignKey("BookingID")
-                        .OnDelete(DeleteBehavior.NoAction)
-                        .IsRequired();
-
-                    b.Navigation("Booking");
                 });
 
             modelBuilder.Entity("RealEstateProjectSaleBusinessObject.BusinessObject.Comment", b =>
@@ -845,15 +831,15 @@ namespace RealEstateProjectSaleBusinessObject.Migrations
                         .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
-                    b.HasOne("RealEstateProjectSaleBusinessObject.BusinessObject.Property", "Properties")
+                    b.HasOne("RealEstateProjectSaleBusinessObject.BusinessObject.Property", "Property")
                         .WithMany("Comments")
-                        .HasForeignKey("PropertiesID")
+                        .HasForeignKey("PropertyID")
                         .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
                     b.Navigation("Customer");
 
-                    b.Navigation("Properties");
+                    b.Navigation("Property");
                 });
 
             modelBuilder.Entity("RealEstateProjectSaleBusinessObject.BusinessObject.Contract", b =>
@@ -864,7 +850,26 @@ namespace RealEstateProjectSaleBusinessObject.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
+                    b.HasOne("RealEstateProjectSaleBusinessObject.BusinessObject.PaymentProcess", "PaymentProcess")
+                        .WithMany("Contracts")
+                        .HasForeignKey("PaymentProcessID")
+                        .OnDelete(DeleteBehavior.NoAction)
+                        .IsRequired();
+
                     b.Navigation("Booking");
+
+                    b.Navigation("PaymentProcess");
+                });
+
+            modelBuilder.Entity("RealEstateProjectSaleBusinessObject.BusinessObject.ContractPaymentDetail", b =>
+                {
+                    b.HasOne("RealEstateProjectSaleBusinessObject.BusinessObject.Contract", "Contract")
+                        .WithMany("ContractPaymentDetails")
+                        .HasForeignKey("ContractID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Contract");
                 });
 
             modelBuilder.Entity("RealEstateProjectSaleBusinessObject.BusinessObject.Customer", b =>
@@ -886,15 +891,53 @@ namespace RealEstateProjectSaleBusinessObject.Migrations
                         .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
-                    b.HasOne("RealEstateProjectSaleBusinessObject.BusinessObject.Property", "Properties")
-                        .WithMany("openForSaleDetails")
-                        .HasForeignKey("PropertiesID")
+                    b.HasOne("RealEstateProjectSaleBusinessObject.BusinessObject.Property", "Property")
+                        .WithMany("OpenForSaleDetails")
+                        .HasForeignKey("PropertyID")
                         .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
                     b.Navigation("OpeningForSale");
 
-                    b.Navigation("Properties");
+                    b.Navigation("Property");
+                });
+
+            modelBuilder.Entity("RealEstateProjectSaleBusinessObject.BusinessObject.OpeningForSale", b =>
+                {
+                    b.HasOne("RealEstateProjectSaleBusinessObject.BusinessObject.Project", "Project")
+                        .WithMany("OpeningForSales")
+                        .HasForeignKey("ProjectID")
+                        .OnDelete(DeleteBehavior.NoAction)
+                        .IsRequired();
+
+                    b.Navigation("Project");
+                });
+
+            modelBuilder.Entity("RealEstateProjectSaleBusinessObject.BusinessObject.Payment", b =>
+                {
+                    b.HasOne("RealEstateProjectSaleBusinessObject.BusinessObject.Booking", "Booking")
+                        .WithMany("Payments")
+                        .HasForeignKey("BookingID")
+                        .OnDelete(DeleteBehavior.NoAction)
+                        .IsRequired();
+
+                    b.HasOne("RealEstateProjectSaleBusinessObject.BusinessObject.ContractPaymentDetail", "ContractPaymentDetail")
+                        .WithMany("Payments")
+                        .HasForeignKey("ContractPaymentDetailID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("RealEstateProjectSaleBusinessObject.BusinessObject.PaymentType", "PaymentType")
+                        .WithMany("Payments")
+                        .HasForeignKey("PaymentTypeID")
+                        .OnDelete(DeleteBehavior.NoAction)
+                        .IsRequired();
+
+                    b.Navigation("Booking");
+
+                    b.Navigation("ContractPaymentDetail");
+
+                    b.Navigation("PaymentType");
                 });
 
             modelBuilder.Entity("RealEstateProjectSaleBusinessObject.BusinessObject.PaymentProcess", b =>
@@ -917,17 +960,6 @@ namespace RealEstateProjectSaleBusinessObject.Migrations
                         .IsRequired();
 
                     b.Navigation("PaymentProcess");
-                });
-
-            modelBuilder.Entity("RealEstateProjectSaleBusinessObject.BusinessObject.Project", b =>
-                {
-                    b.HasOne("RealEstateProjectSaleBusinessObject.BusinessObject.Salespolicy", "Salespolicy")
-                        .WithMany("Projects")
-                        .HasForeignKey("SalesPolicyID")
-                        .OnDelete(DeleteBehavior.NoAction)
-                        .IsRequired();
-
-                    b.Navigation("Salespolicy");
                 });
 
             modelBuilder.Entity("RealEstateProjectSaleBusinessObject.BusinessObject.Promotion", b =>
@@ -962,12 +994,6 @@ namespace RealEstateProjectSaleBusinessObject.Migrations
 
             modelBuilder.Entity("RealEstateProjectSaleBusinessObject.BusinessObject.Property", b =>
                 {
-                    b.HasOne("RealEstateProjectSaleBusinessObject.BusinessObject.Booking", "Booking")
-                        .WithMany()
-                        .HasForeignKey("BookingID")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
                     b.HasOne("RealEstateProjectSaleBusinessObject.BusinessObject.Project", "Project")
                         .WithMany("Properties")
                         .HasForeignKey("ProjectID")
@@ -980,11 +1006,20 @@ namespace RealEstateProjectSaleBusinessObject.Migrations
                         .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
-                    b.Navigation("Booking");
-
                     b.Navigation("Project");
 
                     b.Navigation("PropertyType");
+                });
+
+            modelBuilder.Entity("RealEstateProjectSaleBusinessObject.BusinessObject.Salespolicy", b =>
+                {
+                    b.HasOne("RealEstateProjectSaleBusinessObject.BusinessObject.Project", "Project")
+                        .WithMany("Salespolicies")
+                        .HasForeignKey("ProjectID")
+                        .OnDelete(DeleteBehavior.NoAction)
+                        .IsRequired();
+
+                    b.Navigation("Project");
                 });
 
             modelBuilder.Entity("RealEstateProjectSaleBusinessObject.BusinessObject.Staff", b =>
@@ -1000,9 +1035,17 @@ namespace RealEstateProjectSaleBusinessObject.Migrations
 
             modelBuilder.Entity("RealEstateProjectSaleBusinessObject.BusinessObject.Booking", b =>
                 {
-                    b.Navigation("BookingPaymentProcessDetails");
+                    b.Navigation("Payments");
+                });
 
-                    b.Navigation("BookingPayments");
+            modelBuilder.Entity("RealEstateProjectSaleBusinessObject.BusinessObject.Contract", b =>
+                {
+                    b.Navigation("ContractPaymentDetails");
+                });
+
+            modelBuilder.Entity("RealEstateProjectSaleBusinessObject.BusinessObject.ContractPaymentDetail", b =>
+                {
+                    b.Navigation("Payments");
                 });
 
             modelBuilder.Entity("RealEstateProjectSaleBusinessObject.BusinessObject.Customer", b =>
@@ -1021,21 +1064,25 @@ namespace RealEstateProjectSaleBusinessObject.Migrations
 
             modelBuilder.Entity("RealEstateProjectSaleBusinessObject.BusinessObject.PaymentProcess", b =>
                 {
-                    b.Navigation("Bookings");
+                    b.Navigation("Contracts");
 
                     b.Navigation("PaymentProcessDetails");
                 });
 
             modelBuilder.Entity("RealEstateProjectSaleBusinessObject.BusinessObject.PaymentType", b =>
                 {
-                    b.Navigation("BookingPayments");
+                    b.Navigation("Payments");
                 });
 
             modelBuilder.Entity("RealEstateProjectSaleBusinessObject.BusinessObject.Project", b =>
                 {
                     b.Navigation("Bookings");
 
+                    b.Navigation("OpeningForSales");
+
                     b.Navigation("Properties");
+
+                    b.Navigation("Salespolicies");
                 });
 
             modelBuilder.Entity("RealEstateProjectSaleBusinessObject.BusinessObject.Promotion", b =>
@@ -1045,9 +1092,11 @@ namespace RealEstateProjectSaleBusinessObject.Migrations
 
             modelBuilder.Entity("RealEstateProjectSaleBusinessObject.BusinessObject.Property", b =>
                 {
+                    b.Navigation("Bookings");
+
                     b.Navigation("Comments");
 
-                    b.Navigation("openForSaleDetails");
+                    b.Navigation("OpenForSaleDetails");
                 });
 
             modelBuilder.Entity("RealEstateProjectSaleBusinessObject.BusinessObject.PropertyType", b =>
@@ -1065,8 +1114,6 @@ namespace RealEstateProjectSaleBusinessObject.Migrations
             modelBuilder.Entity("RealEstateProjectSaleBusinessObject.BusinessObject.Salespolicy", b =>
                 {
                     b.Navigation("PaymentProcesses");
-
-                    b.Navigation("Projects");
 
                     b.Navigation("Promotions");
                 });

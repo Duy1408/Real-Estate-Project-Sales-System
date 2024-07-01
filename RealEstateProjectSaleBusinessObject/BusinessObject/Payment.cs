@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace RealEstateProjectSaleBusinessObject.BusinessObject
 {
-    public class BookingPayment
+    public class Payment
     {
-        public Guid BookingPaymentID { get; set; }
+        public Guid PaymentID { get; set; }
         public Guid CustomerID { get; set; }     
         public Guid ProjectID { get; set; }
         public int Deposittoholdproject { get; set; }
@@ -17,5 +17,7 @@ namespace RealEstateProjectSaleBusinessObject.BusinessObject
         public PaymentType PaymentType { get; set; }
         public Guid BookingID { get; set; }
         public Booking Booking { get; set; }
+        public Guid ContractPaymentDetailID { get; set; }
+        public ContractPaymentDetail ContractPaymentDetail { get; set; }
     }
 }

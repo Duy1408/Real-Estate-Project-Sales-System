@@ -20,8 +20,8 @@ namespace RealEstateProjectSaleBusinessObject.BusinessObject
 
         public virtual DbSet<Account>? Accounts { get; set; }
         public virtual DbSet<Booking>? Bookings { get; set; }
-        public virtual DbSet<BookingPayment>? BookingPayments { get; set; }
-        public virtual DbSet<BookingPaymentProcessDetail>? BookingPaymentProcessDetails { get; set; }
+        public virtual DbSet<Payment>? Payments { get; set; }
+        public virtual DbSet<ContractPaymentDetail>? ContractPaymentDetails { get; set; }
         public virtual DbSet<Comment>? Comments { get; set; }
         public virtual DbSet<Contract>? Contracts { get; set; }
         public virtual DbSet<Customer>? Customers { get; set; }

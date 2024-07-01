@@ -8,17 +8,17 @@ using System.Threading.Tasks;
 
 namespace RealEstateProjectSaleDAO.DAOs
 {
-    public class BookingPaymentProcessDetailDAO
+    public class ContractPaymentDetailDAO
     {
-        private static BookingPaymentProcessDetailDAO instance;
+        private static ContractPaymentDetailDAO instance;
 
-        public static BookingPaymentProcessDetailDAO Instance
+        public static ContractPaymentDetailDAO Instance
         {
             get
             {
                 if (instance == null)
                 {
-                    instance = new BookingPaymentProcessDetailDAO();
+                    instance = new ContractPaymentDetailDAO();
                 }
                 return instance;
             }
@@ -26,16 +26,16 @@ namespace RealEstateProjectSaleDAO.DAOs
 
         }
 
-        public List<BookingPaymentProcessDetail> GetAllBookingPaymentProcessDetail()
+        public List<ContractPaymentDetail> GetAllBookingPaymentProcessDetail()
         {
             var _context = new RealEstateProjectSaleSystemDBContext();
-            return _context.BookingPaymentProcessDetails.ToList();
+            return _context.ContractPaymentDetails.ToList();
         }
 
-        public bool AddNew(BookingPaymentProcessDetail p)
+        public bool AddNew(ContractPaymentDetail p)
         {
             var _context = new RealEstateProjectSaleSystemDBContext();
-            var a = _context.BookingPaymentProcessDetails.SingleOrDefault(c => c.BookingPaymentProcessDetailID == p.BookingPaymentProcessDetailID);
+            var a = _context.ContractPaymentDetails.SingleOrDefault(c => c.ContractPaymentDetailID == p.ContractPaymentDetailID);
 
             if (a != null)
             {
@@ -43,17 +43,17 @@ namespace RealEstateProjectSaleDAO.DAOs
             }
             else
             {
-                _context.BookingPaymentProcessDetails.Add(p);
+                _context.ContractPaymentDetails.Add(p);
                 _context.SaveChanges();
                 return true;
 
             }
         }
 
-        public bool Update(BookingPaymentProcessDetail p)
+        public bool Update(ContractPaymentDetail p)
         {
             var _context = new RealEstateProjectSaleSystemDBContext();
-            var a = _context.BookingPaymentProcessDetails.SingleOrDefault(c => c.BookingPaymentProcessDetailID == p.BookingPaymentProcessDetailID);
+            var a = _context.ContractPaymentDetails.SingleOrDefault(c => c.ContractPaymentDetailID == p.ContractPaymentDetailID);
 
             if (a == null)
             {
@@ -67,10 +67,10 @@ namespace RealEstateProjectSaleDAO.DAOs
             }
         }
 
-        public bool ChangeStatus(BookingPaymentProcessDetail p)
+        public bool ChangeStatus(ContractPaymentDetail p)
         {
             var _context = new RealEstateProjectSaleSystemDBContext();
-            var a = _context.BookingPaymentProcessDetails.FirstOrDefault(c => c.BookingPaymentProcessDetailID.Equals(p.BookingPaymentProcessDetailID));
+            var a = _context.ContractPaymentDetails.FirstOrDefault(c => c.ContractPaymentDetailID.Equals(p.ContractPaymentDetailID));
 
 
             if (a == null)
@@ -84,10 +84,10 @@ namespace RealEstateProjectSaleDAO.DAOs
                 return true;
             }
         }
-        public BookingPaymentProcessDetail GetBookingPaymentProcessDetailByID(Guid id)
+        public ContractPaymentDetail GetBookingPaymentProcessDetailByID(Guid id)
         {
             var _context = new RealEstateProjectSaleSystemDBContext();
-            return _context.BookingPaymentProcessDetails.SingleOrDefault(a => a.BookingPaymentProcessDetailID == id);
+            return _context.ContractPaymentDetails.SingleOrDefault(a => a.ContractPaymentDetailID == id);
         }
     }
 }
