@@ -52,7 +52,17 @@ namespace RealEstateProjectSaleBusinessObject.BusinessObject
             optionsBuilder.UseSqlServer(GetConnectionString());
         }
 
+#if DEBUG
         private string GetConnectionString()
+        {
+            IConfiguration config = new ConfigurationBuilder()
+                .SetBasePath(Directory.GetCurrentDirectory())
+                .AddJsonFile("appsettings.Development.json", true, true)
+                .Build();
+            return config["ConnectionStrings:DB"]!;
+        }
+#else
+   private string GetConnectionString()
         {
             IConfiguration config = new ConfigurationBuilder()
                 .SetBasePath(Directory.GetCurrentDirectory())
@@ -60,6 +70,8 @@ namespace RealEstateProjectSaleBusinessObject.BusinessObject
                 .Build();
             return config["ConnectionStrings:DB"]!;
         }
+#endif
+
     }
 }
 

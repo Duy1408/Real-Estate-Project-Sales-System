@@ -14,10 +14,10 @@ namespace RealEstateProjectSaleBusinessObject.BusinessObject
         public string SalesPolicyType { get; set; }
         public bool Status { get; set; }
         public Guid ProjectID { get; set; }
-        public Project Project { get; set; }
+        public Project? Project { get; set; }
 
-        public List<PaymentProcess> PaymentProcesses { get; set; }
-        public List<Promotion> Promotions { get; set; }
+        public List<PaymentProcess>? PaymentProcesses { get; set; }
+        public List<Promotion>? Promotions { get; set; }
 
     }
 }

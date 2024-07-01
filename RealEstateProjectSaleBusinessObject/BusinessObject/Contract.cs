@@ -15,10 +15,10 @@ namespace RealEstateProjectSaleBusinessObject.BusinessObject
         public string ContractType { get; set; }
         public bool Status { get; set; }
         public Guid BookingID { get; set; }
-        public Booking Booking { get; set; }
-        public List<ContractPaymentDetail> ContractPaymentDetails { get; set; }
+        public Booking? Booking { get; set; }
+        public List<ContractPaymentDetail>? ContractPaymentDetails { get; set; }
         public Guid PaymentProcessID { get; set; }
-        public PaymentProcess PaymentProcess { get; set; }
+        public PaymentProcess? PaymentProcess { get; set; }
 
     }
 }

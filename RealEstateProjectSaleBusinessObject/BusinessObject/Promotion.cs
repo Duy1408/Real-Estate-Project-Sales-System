@@ -15,8 +15,8 @@ namespace RealEstateProjectSaleBusinessObject.BusinessObject
         public DateTime EndDate { get; set; }
         public bool Status { get; set; }
         public Guid SalesPolicyID { get; set; }
-        public Salespolicy Salespolicy { get; set; }
-        public List<PromotionDetail> PromotionDetails { get; set; }
+        public Salespolicy? Salespolicy { get; set; }
+        public List<PromotionDetail>? PromotionDetails { get; set; }
 
 
     }

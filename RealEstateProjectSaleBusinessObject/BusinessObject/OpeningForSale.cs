@@ -19,10 +19,10 @@ namespace RealEstateProjectSaleBusinessObject.BusinessObject
         public double DepositMoney { get; set; }
         public double RevervationMoney { get; set;}
         public bool Status {  get; set; }
-        public List<Booking> Bookings { get; set; }
-        public List<OpenForSaleDetail> openForSaleDetails { get; set; }
+        public List<Booking>? Bookings { get; set; }
+        public List<OpenForSaleDetail>? openForSaleDetails { get; set; }
         public Guid ProjectID { get; set; }
-        public Project Project { get; set; }
+        public Project? Project { get; set; }
 
     }
 }

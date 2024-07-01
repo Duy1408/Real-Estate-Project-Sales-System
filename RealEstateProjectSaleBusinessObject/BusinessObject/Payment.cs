@@ -14,10 +14,10 @@ namespace RealEstateProjectSaleBusinessObject.BusinessObject
         public int Deposittoholdproject { get; set; }
         public bool Status { get; set; }
         public Guid PaymentTypeID { get; set; }
-        public PaymentType PaymentType { get; set; }
+        public PaymentType? PaymentType { get; set; }
         public Guid BookingID { get; set; }
-        public Booking Booking { get; set; }
+        public Booking? Booking { get; set; }
         public Guid ContractPaymentDetailID { get; set; }
-        public ContractPaymentDetail ContractPaymentDetail { get; set; }
+        public ContractPaymentDetail? ContractPaymentDetail { get; set; }
     }
 }

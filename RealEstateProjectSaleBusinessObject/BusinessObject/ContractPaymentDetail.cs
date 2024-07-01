@@ -14,9 +14,9 @@ namespace RealEstateProjectSaleBusinessObject.BusinessObject
         public DateTime Paymentduedate { get; set; }
         public int Customervaluepaid { get; set; }
         public string? Note { get; set; }
-        public List<Payment> Payments { get; set; }
+        public List<Payment>? Payments { get; set; }
         public Guid ContractID { get; set; }
-        public Contract Contract {  get; set; }
+        public Contract? Contract {  get; set; }
 
 
 

@@ -14,8 +14,8 @@ namespace RealEstateProjectSaleBusinessObject.BusinessObject
         public DateTime? UpdateTime { get; set; }
         public bool Status { get; set; }
         public Guid PropertiesID { get; set; }
-        public Property Property { get; set; }
+        public Property? Property { get; set; }
         public Guid CustomerID { get; set; }
-        public Customer Customer { get; set; }
+        public Customer? Customer { get; set; }
     }
 }

@@ -10,7 +10,7 @@ namespace RealEstateProjectSaleBusinessObject.BusinessObject
     {
         public Guid PropertyTypeID { get; set; }
         public string Name { get; set; }
-        public List<PromotionDetail> PromotionDetails { get; set; }
-        public List<Property> Properties { get; set; }
+        public List<PromotionDetail>? PromotionDetails { get; set; }
+        public List<Property>? Properties { get; set; }
     }
 }
