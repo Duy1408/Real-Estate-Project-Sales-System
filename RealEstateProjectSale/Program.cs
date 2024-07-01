@@ -122,6 +122,13 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
+app.UseSwagger();
+app.UseSwaggerUI(c =>
+{
+    c.SwaggerEndpoint("/swagger/v1/swagger.json", "Real Estate Project Sale API V1");
+    c.RoutePrefix = string.Empty; // Set the root path for Swagger UI
+});
+
 app.UseHttpsRedirection();
 
 app.UseAuthentication();
