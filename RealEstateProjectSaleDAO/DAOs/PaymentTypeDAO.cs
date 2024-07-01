@@ -20,7 +20,7 @@ namespace RealEstateProjectSaleDAO.DAOs
         {
             try
             {
-                return _context.PaymentTypes!.Include(c => c.BookingPayments)
+                return _context.PaymentTypes!.Include(c => c.Payments)
                                        .ToList();
             }
             catch (Exception ex)
@@ -46,7 +46,7 @@ namespace RealEstateProjectSaleDAO.DAOs
         {
             try
             {
-                var type = _context.PaymentTypes!.Include(a => a.BookingPayments)
+                var type = _context.PaymentTypes!.Include(a => a.Payments)
                                            .SingleOrDefault(c => c.PaymentTypeID == id);
                 return type;
             }

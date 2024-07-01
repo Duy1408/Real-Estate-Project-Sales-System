@@ -16,7 +16,7 @@ namespace RealEstateProjectSaleBusinessObject.FluentAPI
             builder.ToTable("PaymentType");
             builder.HasKey(x => x.PaymentTypeID);
             builder.Property(x => x.PaymentName).IsRequired();
-            builder.HasMany(x => x.BookingPayments).WithOne(x => x.PaymentType).OnDelete(DeleteBehavior.NoAction); 
+            builder.HasMany(x => x.Payments).WithOne(x => x.PaymentType).OnDelete(DeleteBehavior.NoAction); 
 
         }
     }

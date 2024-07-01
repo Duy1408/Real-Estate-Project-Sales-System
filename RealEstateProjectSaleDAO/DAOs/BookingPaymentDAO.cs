@@ -27,16 +27,16 @@ namespace RealEstateProjectSaleDAO.DAOs
 
         }
 
-        public List<BookingPayment> GetAllBookingPayment()
+        public List<Payment> GetAllBookingPayment()
         {
             var _context = new RealEstateProjectSaleSystemDBContext();
-            return _context.BookingPayments.ToList();
+            return _context.Payments.ToList();
         }
 
-        public bool AddNew(BookingPayment p)
+        public bool AddNew(Payment p)
         {
             var _context = new RealEstateProjectSaleSystemDBContext();
-            var a = _context.BookingPayments.SingleOrDefault(c => c.BookingPaymentID == p.BookingPaymentID);
+            var a = _context.Payments.SingleOrDefault(c => c.PaymentID == p.PaymentID);
 
             if (a != null)
             {
@@ -44,17 +44,17 @@ namespace RealEstateProjectSaleDAO.DAOs
             }
             else
             {
-                _context.BookingPayments.Add(p);
+                _context.Payments.Add(p);
                 _context.SaveChanges();
                 return true;
 
             }
         }
 
-        public bool UpdateBookingPayment(BookingPayment p)
+        public bool UpdateBookingPayment(Payment p)
         {
             var _context = new RealEstateProjectSaleSystemDBContext();
-            var a = _context.BookingPayments.SingleOrDefault(c => c.BookingPaymentID == p.BookingPaymentID);
+            var a = _context.Payments.SingleOrDefault(c => c.PaymentID == p.PaymentID);
 
             if (a == null)
             {
@@ -68,10 +68,10 @@ namespace RealEstateProjectSaleDAO.DAOs
             }
         }
 
-        public bool ChangeStatus(BookingPayment p)
+        public bool ChangeStatus(Payment p)
         {
             var _context = new RealEstateProjectSaleSystemDBContext();
-            var a = _context.BookingPayments.FirstOrDefault(c => c.BookingPaymentID.Equals(p.BookingPaymentID));
+            var a = _context.Payments.FirstOrDefault(c => c.PaymentID.Equals(p.PaymentID));
 
 
             if (a == null)
@@ -86,10 +86,10 @@ namespace RealEstateProjectSaleDAO.DAOs
             }
         }
 
-        public BookingPayment GetBookingPaymentByID(Guid id)
+        public Payment GetBookingPaymentByID(Guid id)
         {
             var _context = new RealEstateProjectSaleSystemDBContext();
-            return _context.BookingPayments.SingleOrDefault(a => a.BookingPaymentID == id);
+            return _context.Payments.SingleOrDefault(a => a.PaymentID == id);
         }
 
     }

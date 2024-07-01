@@ -21,7 +21,7 @@ namespace RealEstateProjectSaleDAO.DAOs
             try
             {
                 return _context.OpenForSaleDetails!.Include(c => c.OpeningForSale)
-                                                   .Include(c => c.Properties)
+                                                   .Include(c => c.Property)
                                                    .ToList();
             }
             catch (Exception ex)
@@ -48,7 +48,7 @@ namespace RealEstateProjectSaleDAO.DAOs
             try
             {
                 var detail = _context.OpenForSaleDetails!.Include(c => c.OpeningForSale)
-                                                         .Include(c => c.Properties)
+                                                         .Include(c => c.Property)
                                                          .SingleOrDefault(c => c.OpenForSaleDetailID == id);
                 return detail;
             }

@@ -23,11 +23,10 @@ namespace RealEstateProjectSaleBusinessObject.BusinessObject
         public string? PlaceofIssue { get; set; }
         public string? Code { get; set; }
         public bool Status { get; set; }
-        public Guid SalesPolicyID { get; set; }
-        public Salespolicy Salespolicy { get; set; }
+      public List<Salespolicy> Salespolicies { get; set; }
         public List<Booking> Bookings { get; set; }
         public List<Property> Properties { get; set; }
-
+        public List<OpeningForSale> OpeningForSales { get; set; }
 
 
     }

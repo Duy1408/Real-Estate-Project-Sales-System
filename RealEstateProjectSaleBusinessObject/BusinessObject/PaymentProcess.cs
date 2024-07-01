@@ -14,7 +14,7 @@ namespace RealEstateProjectSaleBusinessObject.BusinessObject
         public int PaymentRate { get; set; }
         public Guid SalesPolicyID { get; set; }
         public Salespolicy Salespolicy { get; set; }
-        public List<Booking> Bookings { get; set; }
+     public List<Contract> Contracts { get; set; }
         public List<PaymentProcessDetail> PaymentProcessDetails { get; set; }
 
 

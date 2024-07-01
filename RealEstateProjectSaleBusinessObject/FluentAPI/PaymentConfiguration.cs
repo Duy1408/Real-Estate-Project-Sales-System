@@ -9,12 +9,12 @@ using System.Threading.Tasks;
 
 namespace RealEstateProjectSaleBusinessObject.FluentAPI
 {
-    public class BookingPaymentConfiguration : IEntityTypeConfiguration<BookingPayment>
+    public class PaymentConfiguration : IEntityTypeConfiguration<Payment>
     {
-        public void Configure(EntityTypeBuilder<BookingPayment> builder)
+        public void Configure(EntityTypeBuilder<Payment> builder)
         {
-            builder.ToTable("BookingPayment");
-            builder.HasKey(x => x.BookingPaymentID);
+            builder.ToTable("Payment");
+            builder.HasKey(x => x.PaymentID); 
             builder.Property(x => x.CustomerID).IsRequired();
             builder.Property(x => x.PaymentTypeID).IsRequired();
             builder.Property(x => x.ProjectID).IsRequired();

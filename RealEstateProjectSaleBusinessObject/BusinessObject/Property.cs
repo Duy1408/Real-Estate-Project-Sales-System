@@ -17,16 +17,17 @@ namespace RealEstateProjectSaleBusinessObject.BusinessObject
         public double Price { get; set; }
         public string? View { get; set; }
         public string? Image { get; set; }
-        public Guid ProjectID { get; set; }
-        public Project Project { get; set; }
-        public Guid BookingID { get; set; }
-        public Booking Booking { get; set; }
+   
+
         public List<Comment> Comments { get; set; }
         public Guid PropertyTypeID { get; set; }
 
         public PropertyType PropertyType { get; set; }
-        public List<OpenForSaleDetail> openForSaleDetails { get; set; }
 
+        public List<OpenForSaleDetail> OpenForSaleDetails { get; set; }
+        public Guid ProjectID { get; set; }
+        public Project Project { get; set; }
+        public List<Booking> Bookings { get; set; }
 
     }
 }
