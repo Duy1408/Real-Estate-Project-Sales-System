@@ -22,6 +22,7 @@ namespace RealEstateProjectSale.Controllers.OpeningForSaleController
         }
 
         // GET: api/OpeningForSales
+        //add new
         [HttpGet]
         public ActionResult<IEnumerable<OpeningForSale>> GetOpeningForSales()
         {
