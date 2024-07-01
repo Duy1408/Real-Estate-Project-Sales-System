@@ -53,5 +53,5 @@ jobs:
         with:
           app-name: 'RealEstateProjectSaleSystem'
           slot-name: 'Production'
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_421B7BFACE184623AD8ABA58DB4D0CF6 }}
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_8646CCEC675043F4A8C0F999238EDE86 }}
           package: .
